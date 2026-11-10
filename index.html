@@ -60,20 +60,34 @@ h1,h2,h3,p{margin-top:0}
 .poster-card:hover .poster{transform:translateY(-4px);filter:brightness(1.08)}
 .poster .poster-title{position:relative;font:800 23px/1.05 Manrope;letter-spacing:-.8px;max-width:90%}
 .poster .poster-meta{position:absolute;top:12px;left:12px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;background:rgba(12,12,10,.55);border:1px solid rgba(255,255,255,.22);padding:5px 8px;border-radius:99px}
+
+.poster{isolation:isolate;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.poster:before{z-index:0;background:linear-gradient(0deg,rgba(0,0,0,.88),transparent 62%),linear-gradient(135deg,rgba(255,255,255,.12),transparent 50%)}
+.poster:after{z-index:0;inset:10% 12% 25%;height:auto;border:1px solid rgba(255,255,255,.28);border-radius:45% 45% 8px 8px;box-shadow:0 0 60px rgba(255,255,255,.08),inset 0 0 50px rgba(255,255,255,.08)}
+
+.poster .poster-title{z-index:2;text-shadow:0 3px 16px rgba(0,0,0,.7)}
+.poster.ayda{background:radial-gradient(circle at 50% 36%,#f6bd66 0 8%,#a94e34 9% 22%,transparent 45%),linear-gradient(145deg,#3c1726,#8d3e2c 48%,#171a26)}
+.poster.city{background:radial-gradient(circle at 50% 32%,#ffe2a0 0 4%,#e47b43 20%,transparent 48%),repeating-linear-gradient(90deg,transparent 0 12%,rgba(255,205,133,.24) 13% 14%),linear-gradient(145deg,#162e4a,#b64c35 55%,#171827)}
+.poster.night{background:radial-gradient(circle at 50% 30%,#d6f5ff 0 4%,#537f9d 14%,transparent 42%),linear-gradient(145deg,#101a37,#304b68 48%,#11131d)}
+.poster.paper{background:radial-gradient(circle at 50% 30%,#ffe7a6 0 5%,#bd8b43 20%,transparent 48%),repeating-linear-gradient(0deg,rgba(255,235,180,.09) 0 2px,transparent 2px 19px),linear-gradient(145deg,#3c2920,#75603e 55%,#171511)}
+.detail-poster{display:flex;flex-direction:column;justify-content:flex-end;gap:12px;font-size:16px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,#f6bd66 0 8%,#a94e34 9% 22%,transparent 45%),linear-gradient(145deg,#3c1726,#8d3e2c 48%,#171a26)}
+.detail-poster .detail-art-caption{font-size:9px;letter-spacing:2px;color:#ead8bd;text-align:left}
+.detail-poster strong{font:800 35px Manrope;position:relative;text-shadow:0 3px 18px #000}.detail-poster .detail-art-caption{position:relative;letter-spacing:2px;color:#ead8bd;font-size:9px}
+.player-wrap{margin:0 0 24px;border:1px solid #65513a;box-shadow:0 18px 55px rgba(0,0,0,.28)}
 .poster.ayda{background:radial-gradient(ellipse at 68% 29%,rgba(232,184,116,.95) 0 5%,rgba(163,105,61,.65) 13%,transparent 34%),linear-gradient(105deg,transparent 42%,rgba(10,15,14,.55) 43% 47%,transparent 48%),linear-gradient(145deg,#75503a,#29312d 58%,#101311)}
 .poster.city{background:linear-gradient(0deg,rgba(10,10,12,.5),transparent),repeating-linear-gradient(90deg,transparent 0 13%,rgba(236,174,105,.18) 13.5% 14.5%),radial-gradient(ellipse at 48% 32%,#d09a61 0,#80543b 25%,transparent 58%),linear-gradient(150deg,#42342e,#181b1b)}
 .poster.night{background:radial-gradient(ellipse at 55% 28%,rgba(190,204,197,.75) 0 4%,#687d79 12%,transparent 35%),linear-gradient(120deg,transparent 40%,rgba(6,12,14,.8) 41% 55%,transparent 56%),linear-gradient(150deg,#354b4c,#101212)}
 .poster.paper{background:repeating-linear-gradient(0deg,transparent 0 22px,rgba(237,218,182,.08) 23px 24px),radial-gradient(ellipse at 50% 30%,#d0b995 0,#776b5b 30%,transparent 60%),linear-gradient(150deg,#4b4339,#191815)}
-.poster:after{content:'';position:absolute;left:15%;right:15%;top:17%;height:54%;border:1px solid rgba(255,235,200,.22);border-bottom:0;border-radius:48% 48% 0 0;opacity:.7;box-shadow:0 0 45px rgba(0,0,0,.18)}
+.poster:after{content:"";position:absolute;inset:12% 12% 25%;border:1px solid rgba(255,235,200,.16);border-radius:8px;opacity:.75;pointer-events:none}
 .poster-info{padding:11px 2px 0}
 .poster-info strong{font-size:13px}.poster-info span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
-.release-card{background:linear-gradient(110deg,#25231e,#1b1b17);border:1px solid #403a30;border-radius:17px;padding:21px 24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;margin:10px 0 30px}
+.release-card{display:none;background:linear-gradient(110deg,#25231e,#1b1b17);border:1px solid #403a30;border-radius:17px;padding:21px 24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;margin:10px 0 30px}
 .release-card .release-title{font:700 17px Manrope;margin:6px 0}
 .release-card p{color:var(--muted);font-size:12px;margin:0}
 .countdown{text-align:right;min-width:160px}
 .countdown strong{display:block;font:800 26px Manrope;color:var(--accent2);letter-spacing:-1px}
 .countdown span{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
-.episode-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.episode-strip{display:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .ep{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
 .ep small{font-size:9px;letter-spacing:1.3px;color:var(--accent);text-transform:uppercase}
 .ep strong{display:block;font-size:13px;margin:5px 0 2px}
@@ -102,7 +116,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:25px 0 35px;color:#777
 .footer-inner{display:flex;justify-content:space-between;gap:20px}
 .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#e2cfb2;color:#211b13;padding:11px 17px;border-radius:99px;font-size:12px;font-weight:700;box-shadow:0 8px 30px #0008;display:none;z-index:30}
 @media(max-width:900px){.shell{padding:0 24px}.hero{gap:25px}.grid{grid-template-columns:repeat(3,1fr)}nav{gap:17px;margin-left:25px}.search{width:170px}}
-@media(max-width:650px){.shell{padding:0 16px}header{height:68px}nav{display:none}.search{width:min(42vw,170px)}.hero{grid-template-columns:1fr;padding:35px 0 25px}.hero-art{height:260px}.film-shape{width:160px;height:225px;right:18%;}.hero h1{font-size:43px}.grid{grid-template-columns:repeat(2,1fr);gap:13px}.poster .poster-title{font-size:19px}.release-card{grid-template-columns:1fr;padding:17px}.countdown{text-align:left}.episode-strip{grid-template-columns:repeat(2,1fr)}.detail-hero{grid-template-columns:105px 1fr;gap:17px}.detail-poster{height:155px;font-size:19px;padding:10px}.detail-hero h1{font-size:29px}.detail-desc{font-size:12px}.schedule{padding:15px}.schedule-row{grid-template-columns:52px 1fr 95px;font-size:10px}.sources{grid-template-columns:1fr}.notify-panel{align-items:flex-start;flex-direction:column}.footer-inner{flex-direction:column}.status-hide{display:none}}
+@media(max-width:650px){.shell{padding:0 16px}header{height:68px}nav{display:none}.search{width:min(42vw,170px)}.hero{grid-template-columns:1fr;padding:35px 0 25px}.hero-art{height:260px}.film-shape{width:160px;height:225px;right:18%;}.hero h1{font-size:43px}.grid{grid-template-columns:repeat(2,1fr);gap:13px}.poster .poster-title{font-size:19px}.release-card{display:none;grid-template-columns:1fr;padding:17px}.countdown{text-align:left}.episode-strip{display:none;grid-template-columns:repeat(2,1fr)}.detail-hero{grid-template-columns:105px 1fr;gap:17px}.detail-poster{height:155px;font-size:19px;padding:10px}.detail-hero h1{font-size:29px}.detail-desc{font-size:12px}.schedule{padding:15px}.schedule-row{grid-template-columns:52px 1fr 95px;font-size:10px}.sources{grid-template-columns:1fr}.notify-panel{align-items:flex-start;flex-direction:column}.footer-inner{flex-direction:column}.status-hide{display:none}}
 
 .watch-list{display:grid;gap:12px;margin:14px 0 28px}
 .watch-card{display:grid;grid-template-columns:48px 1fr auto;gap:15px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
@@ -125,6 +139,15 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:25px 0 35px;color:#777
 .video-frame iframe{width:100%;height:100%;border:0;display:block}
 .player-note{font-size:10px;color:var(--muted);margin:10px 2px 0}
 .watch-link{border:0;cursor:pointer}
+.player-help{margin:-5px 0 25px}
+.help-toggle{background:transparent;border:1px solid #48463c;color:#d7c6a8;border-radius:999px;padding:8px 13px;font-size:11px;font-weight:700}
+.help-toggle:hover{background:#22221d}
+.help-panel{margin-top:10px;padding:15px 17px;background:#191916;border:1px solid #3b392f;border-radius:13px}
+.help-panel strong{font-size:12px}
+.help-panel p{font-size:11px;color:var(--muted);margin:5px 0 11px}
+.help-links{display:flex;gap:9px;flex-wrap:wrap}
+.help-links a{font-size:11px;color:var(--accent2);text-decoration:underline;text-underline-offset:3px}
+
 @media(max-width:650px){.player-wrap{padding:11px}.player-heading{align-items:flex-start;flex-direction:column}.player-tabs{width:100%}.player-tab{flex:1}}
 </style>
 </head>
@@ -153,27 +176,14 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:25px 0 35px;color:#777
     <div class="hero-art"><div class="art-stamp">КОЛЛЕКЦИЯ · 2026</div><div class="film-shape"><strong>АЙДА!</strong></div><div class="art-label">Криминальная драма · Россия</div></div>
   </div>
 
-  <div class="release-card">
-    <div><div class="kicker">Ближайший эпизод · «Айда!»</div><div class="release-title">3 серия — 13 ноября 2026</div><p>Новая серия ожидается в пятницу. Расписание может измениться.</p></div>
-    <div class="countdown"><strong id="countdown">Скоро</strong><span>до выхода серии</span></div>
-  </div>
 
   <div class="section">
     <div class="section-head"><div><h2>Сейчас в центре внимания</h2><p>Подборка для вечернего просмотра</p></div><button class="text-link" onclick="showView('catalog')">Весь каталог →</button></div>
     <div class="grid" id="homeGrid">
-      <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><span class="poster-meta">Премьера</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>2026 · Криминал, драма</span></div></article>
-      <article class="poster-card" data-title="город на окраине" onclick="toast('Карточка пока демонстрационная')"><div class="poster city"><span class="poster-meta">Скоро</span><span class="poster-title">ГОРОД<br>НА ОКРАИНЕ</span></div><div class="poster-info"><strong>Город на окраине</strong><span>Драма · В подборке</span></div></article>
-      <article class="poster-card" data-title="последняя смена" onclick="toast('Карточка пока демонстрационная')"><div class="poster night"><span class="poster-meta">Подборка</span><span class="poster-title">ПОСЛЕДНЯЯ<br>СМЕНА</span></div><div class="poster-info"><strong>Последняя смена</strong><span>Триллер · В подборке</span></div></article>
-      <article class="poster-card" data-title="архив" onclick="toast('Карточка пока демонстрационная')"><div class="poster paper"><span class="poster-meta">Выбор редакции</span><span class="poster-title">АРХИВ</span></div><div class="poster-info"><strong>Архив</strong><span>Детектив · В подборке</span></div></article>
-    </div>
-  </div>
-  <div class="section">
-    <div class="section-head"><div><h2>График выхода «Айда!»</h2><p>Первый сезон · 8 серий</p></div><button class="text-link" onclick="openTitle('ayda')">Все серии →</button></div>
-    <div class="episode-strip">
-      <div class="ep"><small>Вышли</small><strong>1–2 серии</strong><span>6 ноября</span></div>
-      <div class="ep"><small>Следующая</small><strong>3 серия</strong><span>13 ноября</span></div>
-      <div class="ep"><small>Далее</small><strong>4 серия</strong><span>20 ноября</span></div>
-      <div class="ep"><small>Финал сезона</small><strong>8 серия</strong><span>18 декабря</span></div>
+      <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><span class="poster-meta">Новые серии скоро</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Криминал, драма · Новые серии скоро</span></div></article>
+      <article class="poster-card" data-title="город на окраине" onclick="toast('Карточка пока демонстрационная')"><div class="poster city"><span class="poster-meta">Скоро выйдет</span><span class="poster-title">ГОРОД<br>НА ОКРАИНЕ</span></div><div class="poster-info"><strong>Город на окраине</strong><span>Драма · Скоро выйдет</span></div></article>
+      <article class="poster-card" data-title="последняя смена" onclick="toast('Карточка пока демонстрационная')"><div class="poster night"><span class="poster-meta">Скоро выйдет</span><span class="poster-title">ПОСЛЕДНЯЯ<br>СМЕНА</span></div><div class="poster-info"><strong>Последняя смена</strong><span>Триллер · Скоро выйдет</span></div></article>
+      <article class="poster-card" data-title="архив" onclick="toast('Карточка пока демонстрационная')"><div class="poster paper"><span class="poster-meta">Скоро выйдет</span><span class="poster-title">АРХИВ</span></div><div class="poster-info"><strong>Архив</strong><span>Детектив · Скоро выйдет</span></div></article>
     </div>
   </div>
   <div class="notify-panel"><div><strong>Не пропускай новые серии</strong><p>Разреши уведомления в браузере. Пока это тест локальных уведомлений, без фоновой рассылки.</p></div><button class="btn btn-primary" onclick="enableNotifications()">Включить уведомления</button></div>
@@ -182,10 +192,10 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:25px 0 35px;color:#777
 <section id="catalog" class="view">
   <div class="detail-top"><div class="kicker">Исследуй коллекцию</div><h1 style="font:800 42px Manrope;letter-spacing:-1.5px;margin:8px 0">Каталог</h1><p class="sub">Сериалы и эпизоды — всё в одном месте.</p></div>
   <div class="grid" id="catalogGrid">
-    <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><span class="poster-meta">Сериал</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>2026 · 1 сезон</span></div></article>
-    <article class="poster-card" data-title="город на окраине" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster city"><span class="poster-meta">Сериал</span><span class="poster-title">ГОРОД<br>НА ОКРАИНЕ</span></div><div class="poster-info"><strong>Город на окраине</strong><span>Драма · Заглушка</span></div></article>
-    <article class="poster-card" data-title="последняя смена" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster night"><span class="poster-meta">Фильм</span><span class="poster-title">ПОСЛЕДНЯЯ<br>СМЕНА</span></div><div class="poster-info"><strong>Последняя смена</strong><span>Триллер · Заглушка</span></div></article>
-    <article class="poster-card" data-title="архив" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster paper"><span class="poster-meta">Сериал</span><span class="poster-title">АРХИВ</span></div><div class="poster-info"><strong>Архив</strong><span>Детектив · Заглушка</span></div></article>
+    <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><span class="poster-meta">Сериал</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Новые серии скоро</span></div></article>
+    <article class="poster-card" data-title="город на окраине" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster city"><span class="poster-meta">Сериал</span><span class="poster-title">ГОРОД<br>НА ОКРАИНЕ</span></div><div class="poster-info"><strong>Город на окраине</strong><span>Новые серии скоро</span></div></article>
+    <article class="poster-card" data-title="последняя смена" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster night"><span class="poster-meta">Фильм</span><span class="poster-title">ПОСЛЕДНЯЯ<br>СМЕНА</span></div><div class="poster-info"><strong>Последняя смена</strong><span>Новые серии скоро</span></div></article>
+    <article class="poster-card" data-title="архив" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster paper"><span class="poster-meta">Сериал</span><span class="poster-title">АРХИВ</span></div><div class="poster-info"><strong>Архив</strong><span>Новые серии скоро</span></div></article>
   </div>
 </section>
 
@@ -195,37 +205,43 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:25px 0 35px;color:#777
   <div class="detail-top">
     <button class="back" onclick="showView('home')">← Назад</button>
     <div class="detail-hero">
-      <div class="detail-poster">АЙДА!</div>
+      <div class="detail-poster"><strong>АЙДА!</strong><span class="detail-art-caption">КРИМИНАЛЬНАЯ ДРАМА</span></div>
       <div><div class="kicker">Сериал · 2026</div><h1>Айда!</h1>
         <div class="tags"><span class="tag">Криминал</span><span class="tag">Драма</span><span class="tag">Россия</span><span class="tag">18+</span><span class="tag">1 сезон · 8 серий</span></div>
         <p class="detail-desc">Подросток Гриша переезжает из Волгограда в Казань и оказывается в мире уличных группировок. Криминальная драма Олега Асадулина о казанском феномене конца 1970-х.</p>
-        <div class="actions"><button class="btn btn-primary" onclick="document.getElementById('watch').scrollIntoView({behavior:'smooth'})">Выбрать серию ↓</button></div>
+        <div class="actions"><button class="btn btn-primary" onclick="document.getElementById('watch').scrollIntoView({behavior:'smooth'})">Смотреть первую серию ↓</button></div>
       </div>
     </div>
   </div>
   <div class="section" id="watch">
-    <div class="section-head"><div><h2>Сезон 1</h2><p>Выбери эпизод и источник просмотра</p></div><span class="tag">8 эпизодов</span></div>
-    <div class="schedule" id="episodeSchedule"></div>
-    <div class="section-head"><div><h2>Смотреть онлайн</h2><p>Плеер встроен в сайт — выбери серию и платформу</p></div></div>
+    <div class="section-head"><div><h2>Смотреть «Айда!»</h2><p>Сразу запускается первая серия — переключать ничего не нужно</p></div></div>
     <div class="player-wrap">
       <div class="player-heading"><div><span class="kicker" id="playerEpisodeLabel">СЕЗОН 1 · СЕРИЯ 1</span><h3 id="playerTitle">Айда! — серия 1</h3></div><div class="player-tabs"><button class="player-tab active" id="ytTab" onclick="setPlatform('youtube')">YouTube</button><button class="player-tab" id="vkTab" onclick="setPlatform('vk')">VK Видео</button></div></div>
       <div class="video-frame"><iframe id="episodePlayer" src="https://www.youtube-nocookie.com/embed/ZNM6Nsr55DI?rel=0" title="Айда! — серия 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       <p class="player-note" id="playerNote">Если платформа запрещает встраивание, открой серию на сайте источника.</p>
     </div>
+    <div class="player-help">
+      <button class="help-toggle" id="helpToggle" onclick="togglePlayerHelp()" aria-expanded="false">Видео не загружается?　⌄</button>
+      <div class="help-panel" id="helpPanel" hidden>
+        <strong>Попробуй переключить плеер на VK Видео.</strong>
+        <p>Если ролик всё равно не запускается, открой нужную серию напрямую:</p>
+        <div class="help-links" id="episodeDirectLinks">
+          <a href="https://www.youtube.com/watch?v=ZNM6Nsr55DI" target="_blank" rel="noopener">Серия 1 · YouTube ↗</a>
+          <a href="https://vk.com/video-243166529_456239017" target="_blank" rel="noopener">Серия 1 · VK Видео ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="section-head" style="margin-top:26px"><div><h2>Серии</h2><p>Выбирай эпизод — плеер переключится на него</p></div></div>
     <div class="watch-list">
       <article class="watch-card">
         <div class="watch-number">01</div>
-        <div class="watch-info"><strong>Первая серия</strong><span>Доступна на YouTube и VK Видео</span></div>
-        <div class="watch-actions">
-          <button class="watch-link youtube" onclick="selectEpisode(1)">Смотреть серию 1 ▶</button>
-        </div>
+        <div class="watch-info"><strong>Серия 1</strong><span>Дата выхода: скоро · Уже доступна для просмотра</span></div>
+        <div class="watch-actions"><button class="watch-link youtube" onclick="selectEpisode(1)">Смотреть серию 1 ▶</button></div>
       </article>
       <article class="watch-card">
         <div class="watch-number">02</div>
-        <div class="watch-info"><strong>Вторая серия</strong><span>Доступна на YouTube и VK Видео</span></div>
-        <div class="watch-actions">
-          <button class="watch-link youtube" onclick="selectEpisode(2)">Смотреть серию 2 ▶</button>
-        </div>
+        <div class="watch-info"><strong>Серия 2</strong><span>Дата выхода: скоро · Уже доступна для просмотра</span></div>
+        <div class="watch-actions"><button class="watch-link youtube" onclick="selectEpisode(2)">Смотреть серию 2 ▶</button></div>
       </article>
     </div>
     <div class="notify-panel"><div><strong>Уведомлять о новых сериях «Айда!»</strong><p>Разрешение браузера можно включить здесь. Автоматические фоновые push потребуют отдельного сервиса.</p></div><button class="btn btn-primary" onclick="enableNotifications()">Включить</button></div>
@@ -235,16 +251,6 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:25px 0 35px;color:#777
 <footer><div class="shell footer-inner"><span>© 2026 СЕРИАЛ ХАБ</span><span>Собираем сериалы в одном месте.</span><span>Демонстрационный интерфейс</span></div></footer>
 <div class="toast" id="toast"></div>
 <script>
-const schedule=[
- {n:1,date:'6 ноября 2026',status:'Доступна'},
- {n:2,date:'6 ноября 2026',status:'Доступна'},
- {n:3,date:'13 ноября 2026',status:'Следующая'},
- {n:4,date:'20 ноября 2026',status:'Ожидается'},
- {n:5,date:'27 ноября 2026',status:'Ожидается'},
- {n:6,date:'4 декабря 2026',status:'Ожидается'},
- {n:7,date:'11 декабря 2026',status:'Ожидается'},
- {n:8,date:'18 декабря 2026',status:'Финал сезона'}
-];
 let selectedEpisode=1;
 function showView(id){
  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -252,11 +258,7 @@ function showView(id){
  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.nav===id));
  window.scrollTo({top:0,behavior:'smooth'});
 }
-function openTitle(id){if(id==='ayda'){renderSchedule();showView('detail')}}
-function renderSchedule(){
- const el=document.getElementById('episodeSchedule');
- el.innerHTML=schedule.map(e=>`<div class="schedule-row"><strong>Серия ${e.n}</strong><span class="date">${e.date}</span><span class="state ${e.status==='Следующая'?'pending':''}">${e.status}</span></div>`).join('');
-}
+function openTitle(id){if(id==='ayda'){showView('detail')}}
 const episodeSources={
   1:{youtube:'https://www.youtube-nocookie.com/embed/ZNM6Nsr55DI?rel=0',vk:'https://vk.com/video_ext.php?oid=-243166529&id=456239017&hd=2'},
   2:{youtube:'https://www.youtube-nocookie.com/embed/ZNM6Nsr55Dl?rel=0',vk:'https://vk.com/video_ext.php?oid=-243166529&id=456239018&hd=2'}
@@ -274,7 +276,31 @@ function setPlatform(platform){
   document.getElementById('episodePlayer').src=episodeSources[currentEpisode][platform];
   document.getElementById('ytTab').classList.toggle('active',platform==='youtube');
   document.getElementById('vkTab').classList.toggle('active',platform==='vk');
-  document.getElementById('playerNote').textContent=platform==='vk'?'Встроенный плеер VK Видео. Если встраивание ограничено настройками ролика, открой его на VK Видео.':'Встроенный плеер YouTube. Если автор запретил встраивание, открой ролик на YouTube.';
+  document.getElementById('playerNote').textContent=platform==='vk'?'Сейчас выбран VK Видео. Если не запускается, открой ссылку ниже.':'Сейчас выбран YouTube. Если не запускается, попробуй VK Видео или открой ссылку ниже.';
+  renderDirectLinks();
+}
+function renderDirectLinks(){
+  const links={
+    1:[
+      ['Серия 1 · YouTube ↗','https://www.youtube.com/watch?v=ZNM6Nsr55DI'],
+      ['Серия 1 · VK Видео ↗','https://vk.com/video-243166529_456239017']
+    ],
+    2:[
+      ['Серия 2 · YouTube ↗','https://www.youtube.com/watch?v=ZNM6Nsr55Dl'],
+      ['Серия 2 · VK Видео ↗','https://vk.com/video-243166529_456239018']
+    ]
+  };
+  document.getElementById('episodeDirectLinks').innerHTML=links[currentEpisode]
+    .map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label}</a>`).join('');
+}
+function togglePlayerHelp(){
+  const panel=document.getElementById('helpPanel');
+  const button=document.getElementById('helpToggle');
+  const open=panel.hidden;
+  panel.hidden=!open;
+  button.setAttribute('aria-expanded',String(open));
+  button.textContent=open?'Скрыть подсказку　⌃':'Видео не загружается?　⌄';
+  if(open)renderDirectLinks();
 }
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',2600)}
 function searchTitles(q){
@@ -314,15 +340,6 @@ async function enableNotifications(){
   toast('Разрешение получено');
  }else toast('Разрешение на уведомления не выдано');
 }
-function updateCountdown(){
- const target=new Date('2026-11-13T00:00:00+03:00');
- const now=new Date();const diff=target-now;
- const el=document.getElementById('countdown');
- if(diff<=0){el.textContent='Сегодня / вышла';return}
- const days=Math.floor(diff/86400000),hours=Math.floor(diff%86400000/3600000);
- el.textContent=days>0?`${days} дн. ${hours} ч.`:`${hours} ч.`;
-}
-renderSchedule();updateCountdown();
 
 </script>
 </body>
