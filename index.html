@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#11110f">
-<link rel="icon" href="https://fotovssylku.ru/i/image.zg">
-<link rel="apple-touch-icon" href="https://fotovssylku.ru/i/image.zg">
+<link rel="icon" href="images/4.jpg">
+<link rel="apple-touch-icon" href="images/4.jpg">
 <title>Сериал Хаб — кино ближе</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -221,11 +221,16 @@ nav button{font-size:13px;letter-spacing:.15px}
  .brand{font-size:14px}
 }
 
+
+.detail-still{margin:4px 0 28px;border-radius:16px;overflow:hidden;background:#191916;box-shadow:0 18px 55px rgba(0,0,0,.25)}
+.detail-still img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover}
+@media(max-width:650px){.detail-still img{aspect-ratio:16/9}}
+
 </style>
 </head>
 <body>
 <header><div class="shell header-inner">
-  <a class="brand" href="#" onclick="showView('home');return false"><img class="brand-logo" src="https://fotovssylku.ru/i/image.zg" alt=""> СЕРИАЛ <span>ХАБ</span></a>
+  <a class="brand" href="#" onclick="showView('home');return false"><img class="brand-logo" src="images/4.jpg" alt=""> СЕРИАЛ <span>ХАБ</span></a>
   <nav>
     <button class="active" data-nav="home" onclick="showView('home')">Главная</button>
     <button data-nav="catalog" onclick="showView('catalog')">Каталог</button>
@@ -241,14 +246,14 @@ nav button{font-size:13px;letter-spacing:.15px}
       <p class="hero-copy">Твои сериалы и серии в одном месте. Выбирай, сохраняй и продолжай смотреть — без лишнего шума.</p>
       <div class="actions"><button class="btn btn-primary" onclick="openTitle('ayda')">Открыть «Айда!»　↗</button><button class="btn btn-quiet" onclick="showView('catalog')">Весь каталог</button></div>
     </div>
-    <div class="hero-art"><img src="https://fotovssylku.ru/i/image.zgvqx" alt="Главная обложка Сериал Хаб"></div>
+    <div class="hero-art"><img src="images/2.jpg" alt="Главная обложка Сериал Хаб"></div>
   </div>
 
 
   <div class="section">
     <div class="section-head"><div><h2>Сейчас в центре внимания</h2><p>Подборка для вечернего просмотра</p></div><button class="text-link" onclick="showView('catalog')">Весь каталог →</button></div>
     <div class="grid" id="homeGrid">
-      <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><img src="https://fotovssylku.ru/i/image.zgLbf" alt="Айда!"><span class="poster-meta">Новые серии скоро</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Криминал, драма · Новые серии скоро</span></div></article>
+      <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><img src="images/3.jpg" alt="Постер на главной странице"><span class="poster-meta">Новые серии скоро</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Криминал, драма · Новые серии скоро</span></div></article>
       <article class="poster-card" data-title="город на окраине" onclick="toast('Карточка пока демонстрационная')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Город на окраине</strong><span>Драма · Скоро выйдет</span></div></article>
       <article class="poster-card" data-title="последняя смена" onclick="toast('Карточка пока демонстрационная')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Последняя смена</strong><span>Триллер · Скоро выйдет</span></div></article>
       <article class="poster-card" data-title="архив" onclick="toast('Карточка пока демонстрационная')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Архив</strong><span>Детектив · Скоро выйдет</span></div></article>
@@ -259,7 +264,7 @@ nav button{font-size:13px;letter-spacing:.15px}
 <section id="catalog" class="view">
   <div class="detail-top"><div class="kicker">Исследуй коллекцию</div><h1 style="font:800 42px Manrope;letter-spacing:-1.5px;margin:8px 0">Каталог</h1><p class="sub">Сериалы и эпизоды — всё в одном месте.</p></div>
   <div class="grid" id="catalogGrid">
-    <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><img src="https://fotovssylku.ru/i/image.zgLbf" alt="Айда!"><span class="poster-meta">Сериал</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Новые серии скоро</span></div></article>
+    <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><span class="poster-meta">Сериал</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Новые серии скоро</span></div></article>
     <article class="poster-card" data-title="город на окраине" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Город на окраине</strong><span>Новые серии скоро</span></div></article>
     <article class="poster-card" data-title="последняя смена" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Последняя смена</strong><span>Новые серии скоро</span></div></article>
     <article class="poster-card" data-title="архив" onclick="toast('Добавим карточку, когда подготовишь ссылки')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Архив</strong><span>Новые серии скоро</span></div></article>
@@ -272,7 +277,7 @@ nav button{font-size:13px;letter-spacing:.15px}
   <div class="detail-top">
     <button class="back" onclick="showView('home')">← Назад</button>
     <div class="detail-hero">
-      <div class="detail-poster"><img src="https://fotovssylku.ru/i/image.zgLbf" alt="Постер сериала Айда!"></div>
+      <div class="detail-poster"><img src="images/1.jpg" alt="Постер сериала Айда!"></div>
       <div><div class="kicker">Сериал · 2026</div><h1>Айда!</h1>
         <div class="tags"><span class="tag">Криминал</span><span class="tag">Драма</span><span class="tag">Россия</span><span class="tag">18+</span><span class="tag">1 сезон · 8 серий</span></div>
         <p class="detail-desc">Подросток Гриша переезжает из Волгограда в Казань и оказывается в мире уличных группировок. Криминальная драма Олега Асадулина о казанском феномене конца 1970-х.</p>
