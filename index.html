@@ -235,7 +235,12 @@ nav button{font-size:13px;letter-spacing:.15px}
 header{height:90px}
 .hero-art{position:relative;isolation:isolate;background:#171222;aspect-ratio:16/7;overflow:hidden}
 .hero-art:before{display:none}
-.hero-art img.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;opacity:0;transition:opacity .8s ease;background:#171222}
+.hero-art img.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;opacity:0;transition:opacity .8s ease;background:transparent;cursor:pointer}
+.hero-art{background:#171222}
+.hero-art .hero-slide{z-index:1}
+.hero-art .hero-dots{z-index:3}
+.hero-art img.hero-slide.active{opacity:1}
+.hero-art img.hero-slide:focus-visible{outline:3px solid var(--accent2);outline-offset:-3px}
 .hero-slide.active{opacity:1}
 .hero-dots{position:absolute;z-index:3;right:17px;bottom:15px;display:flex;gap:7px;padding:7px 9px;border-radius:20px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px)}
 .hero-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45)}
@@ -261,7 +266,7 @@ header{height:90px}
 </head>
 <body>
 <header><div class="shell header-inner">
-  <a class="brand" href="#" onclick="showView('home');return false"><img class="brand-logo" src="images/4.jpg" alt=""> СЕРИАЛ <span>ХАБ</span></a>
+  <a class="brand" href="#" onclick="showView('home');return false"><img class="brand-logo" src="./images/4.jpg" alt=""> СЕРИАЛ <span>ХАБ</span></a>
   <nav>
     <button class="active" data-nav="home" onclick="showView('home')">Главная</button>
     <button data-nav="catalog" onclick="showView('catalog')">Каталог</button>
@@ -278,8 +283,8 @@ header{height:90px}
       <div class="actions"><button class="btn btn-primary" onclick="openTitle('ayda')">Открыть «Айда!»　↗</button><button class="btn btn-quiet" onclick="showView('catalog')">Весь каталог</button></div>
     </div>
     <div class="hero-art" aria-label="Обложки Сериал Хаб">
-      <img class="hero-slide active" src="images/3.jpg" alt="Обложка Сериал Хаб — обложка 3">
-      <img class="hero-slide" src="images/2.jpg" alt="Обложка Сериал Хаб — обложка 2">
+      <img class="hero-slide active" src="./images/3.jpg" alt="Обложка Сериал Хаб — обложка 3" role="link" tabindex="0" title="Открыть сериал Айда!" onclick="openTitle('ayda')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTitle('ayda')}">
+      <img class="hero-slide" src="./images/2.jpg" alt="Обложка Сериал Хаб — обложка 2" role="link" tabindex="0" title="Открыть сериал Айда!" onclick="openTitle('ayda')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTitle('ayda')}">
       <div class="hero-dots" aria-hidden="true"><span class="active"></span><span></span></div>
     </div>
   </div>
@@ -312,7 +317,7 @@ header{height:90px}
   <div class="detail-top">
     <button class="back" onclick="showView('home')">← Назад</button>
     <div class="detail-hero">
-      <div class="detail-poster"><img src="images/1.jpg" alt="Постер сериала Айда!"></div>
+      <div class="detail-poster"><img src="./images/1.jpg" alt="Постер сериала Айда!"></div>
       <div><div class="kicker">Сериал · 2026</div><h1>Айда!</h1>
         <div class="tags"><span class="tag">Криминал</span><span class="tag">Драма</span><span class="tag">Россия</span><span class="tag">18+</span><span class="tag">1 сезон · 8 серий</span></div>
         <p class="detail-desc">Подросток Гриша переезжает из Волгограда в Казань и оказывается в мире уличных группировок. Криминальная драма Олега Асадулина о казанском феномене конца 1970-х.</p>
