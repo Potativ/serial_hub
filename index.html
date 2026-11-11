@@ -226,6 +226,36 @@ nav button{font-size:13px;letter-spacing:.15px}
 .detail-still img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover}
 @media(max-width:650px){.detail-still img{aspect-ratio:16/9}}
 
+
+/* Слайдер обложек и фирменная тема */
+:root{--bg:#100f0d;--surface:#1b1915;--surface2:#26221c;--line:#494032;--accent:#d0a66e;--accent2:#f0d1a2;--radius:18px}
+.brand-logo{width:50px;height:50px;object-fit:contain;border-radius:12px;box-shadow:0 0 0 1px rgba(208,166,110,.32),0 5px 20px rgba(0,0,0,.35)}
+.brand{gap:12px;font-size:17px;letter-spacing:1.3px}
+header{height:84px}
+.hero-art{position:relative;isolation:isolate;background:#171511;aspect-ratio:16/7;overflow:hidden}
+.hero-art:before{display:none}
+.hero-art img.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .8s ease;background:#171511}
+.hero-slide.active{opacity:1}
+.hero-dots{position:absolute;z-index:3;right:17px;bottom:15px;display:flex;gap:7px;padding:7px 9px;border-radius:20px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px)}
+.hero-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45)}
+.hero-dots span.active{background:var(--accent2);box-shadow:0 0 8px rgba(240,209,162,.65)}
+.poster.ayda{background:linear-gradient(145deg,#45372a,#1a201d 60%,#15130f)!important}
+.poster.ayda:after{display:none}
+.episode-schedule{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0 8px}
+.schedule-line{display:grid;grid-template-columns:75px 1fr;gap:4px 10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.schedule-line span{font-size:11px;color:var(--muted)}
+.schedule-line strong{font-size:12px}
+.schedule-line em{grid-column:2;font-size:10px;color:var(--muted);font-style:normal}
+.schedule-line.next{border-color:var(--accent);background:linear-gradient(110deg,rgba(208,166,110,.14),var(--surface))}
+.schedule-line.next em{color:var(--accent2)}
+.schedule-note{font-size:10px;color:var(--muted);margin:8px 2px 20px}
+@media(max-width:650px){
+ header{height:74px}.brand-logo{width:44px;height:44px}.brand{font-size:13px;gap:9px}
+ .hero-art{aspect-ratio:4/3;height:auto;margin-top:23px}
+ .hero-slide{object-fit:contain}
+ .episode-schedule{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -246,14 +276,18 @@ nav button{font-size:13px;letter-spacing:.15px}
       <p class="hero-copy">Твои сериалы и серии в одном месте. Выбирай, сохраняй и продолжай смотреть — без лишнего шума.</p>
       <div class="actions"><button class="btn btn-primary" onclick="openTitle('ayda')">Открыть «Айда!»　↗</button><button class="btn btn-quiet" onclick="showView('catalog')">Весь каталог</button></div>
     </div>
-    <div class="hero-art"><img src="images/2.jpg" alt="Главная обложка Сериал Хаб"></div>
+    <div class="hero-art" aria-label="Обложки Сериал Хаб">
+      <img class="hero-slide active" src="images/2.jpg" alt="Обложка Сериал Хаб — вариант 1">
+      <img class="hero-slide" src="images/3.jpg" alt="Обложка Сериал Хаб — вариант 2">
+      <div class="hero-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+    </div>
   </div>
 
 
   <div class="section">
     <div class="section-head"><div><h2>Сейчас в центре внимания</h2><p>Подборка для вечернего просмотра</p></div><button class="text-link" onclick="showView('catalog')">Весь каталог →</button></div>
     <div class="grid" id="homeGrid">
-      <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><img src="images/3.jpg" alt="Постер на главной странице"><span class="poster-meta">Новые серии скоро</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Криминал, драма · Новые серии скоро</span></div></article>
+      <article class="poster-card" data-title="айда" onclick="openTitle('ayda')"><div class="poster ayda"><span class="poster-meta">Новые серии выходят</span><span class="poster-title">АЙДА!</span></div><div class="poster-info"><strong>Айда!</strong><span>Криминал, драма · Новые серии скоро</span></div></article>
       <article class="poster-card" data-title="город на окраине" onclick="toast('Карточка пока демонстрационная')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Город на окраине</strong><span>Драма · Скоро выйдет</span></div></article>
       <article class="poster-card" data-title="последняя смена" onclick="toast('Карточка пока демонстрационная')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Последняя смена</strong><span>Триллер · Скоро выйдет</span></div></article>
       <article class="poster-card" data-title="архив" onclick="toast('Карточка пока демонстрационная')"><div class="poster coming-soon"><span class="soon-label">СКОРО</span></div><div class="poster-info"><strong>Архив</strong><span>Детектив · Скоро выйдет</span></div></article>
@@ -324,17 +358,29 @@ nav button{font-size:13px;letter-spacing:.15px}
         </div>
       </div>
     </div>
-    <div class="section-head" style="margin-top:26px"><div><h2>Серии</h2><p>Выбирай эпизод — плеер переключится на него</p></div></div>
+    <div class="section-head" style="margin-top:26px"><div><h2>Расписание выхода серий</h2><p>Первый сезон · 8 эпизодов · новые серии по пятницам</p></div></div>
+    <div class="episode-schedule">
+      <div class="schedule-line"><span>Серия 1</span><strong>6 ноября 2026</strong><em>Уже вышла</em></div>
+      <div class="schedule-line"><span>Серия 2</span><strong>6 ноября 2026</strong><em>Уже вышла</em></div>
+      <div class="schedule-line next"><span>Серия 3</span><strong>13 ноября 2026</strong><em>Следующая</em></div>
+      <div class="schedule-line"><span>Серия 4</span><strong>20 ноября 2026</strong><em>Ожидается</em></div>
+      <div class="schedule-line"><span>Серия 5</span><strong>27 ноября 2026</strong><em>Ожидается</em></div>
+      <div class="schedule-line"><span>Серия 6</span><strong>4 декабря 2026</strong><em>Ожидается</em></div>
+      <div class="schedule-line"><span>Серия 7</span><strong>11 декабря 2026</strong><em>Ожидается</em></div>
+      <div class="schedule-line"><span>Серия 8</span><strong>18 декабря 2026</strong><em>Финал сезона</em></div>
+    </div>
+    <p class="schedule-note">Даты будущих эпизодов предварительные: онлайн-кинотеатр может изменить расписание.</p>
+    <div class="section-head" style="margin-top:26px"><div><h2>Серии</h2><p>Первые два эпизода уже вышли</p></div></div>
     <div class="watch-list">
       <article class="watch-card">
         <div class="watch-number">01</div>
-        <div class="watch-info"><strong>Серия 1</strong><span>Дата выхода: скоро · Доступна сейчас</span></div>
+        <div class="watch-info"><strong>Серия 1</strong><span>Дата выхода: 6 ноября 2026 · Доступна сейчас</span></div>
         <div class="watch-actions"><button class="watch-link" type="button" onclick="document.getElementById('watch').scrollIntoView({behavior:'smooth'});document.getElementById('mainPlayer').focus()">К плееру ↓</button></div>
       </article>
       <article class="watch-card">
         <div class="watch-number">02</div>
-        <div class="watch-info"><strong>Серия 2</strong><span>Дата выхода: скоро · Уже доступна для просмотра</span></div>
-        <div class="watch-actions"><span class="watch-link disabled-link">Скоро</span></div>
+        <div class="watch-info"><strong>Серия 2</strong><span>Дата выхода: 6 ноября 2026 · Уже доступна для просмотра</span></div>
+        <div class="watch-actions"><span class="watch-link disabled-link">Уже вышла</span></div>
       </article>
     </div>
 </section>
@@ -343,6 +389,17 @@ nav button{font-size:13px;letter-spacing:.15px}
 <div class="toast" id="toast"></div>
 <script>
 let selectedEpisode=1;
+(function initHeroCarousel(){
+ const slides=[...document.querySelectorAll('.hero-slide')];
+ const dots=[...document.querySelectorAll('.hero-dots span')];
+ if(slides.length<2)return;
+ let current=0;
+ setInterval(()=>{
+  slides[current].classList.remove('active');dots[current]?.classList.remove('active');
+  current=(current+1)%slides.length;
+  slides[current].classList.add('active');dots[current]?.classList.add('active');
+ },5000);
+})();
 function showView(id){
  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
  document.getElementById(id).classList.add('active');
